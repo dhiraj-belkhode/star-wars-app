@@ -34,8 +34,8 @@ There are two pages -
 
 1. List View: Displays a list of Star Wars characters with their names, genders, and home planets. You can navigate to a specific character's details by clicking on their name.
 2. Detail View: Displays detailed information about a specific Star Wars character, including their name, height, hair color, eye color, gender, home planet, and the films they have appeared in.
-  a. Added functionality allows you to update the character's age directly on the detail page.
-  b. Any changes to the character's gender on the detail page are automatically reflected in the list view. 
+    - Added functionality allows to update the character's gender directly on the detail page.
+    - Any changes to the character's gender on the detail page are automatically reflected in the list view. 
 
 ## Pages
 
