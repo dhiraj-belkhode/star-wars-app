@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Container } from "@mui/material";
 import Header from "../Header";
-import ErrorBoundary from "../../shared/ErrorBoundary";
+import ErrorHandler from "../../shared/ErrorBoundary";
 
 /**
  * PageLayout component that serves as a layout wrapper for pages in the application.
@@ -14,9 +14,9 @@ const PageLayout: React.FC = () => {
     <>
       <Header />
       <Container data-testid="container">
-        <ErrorBoundary>
+        <ErrorHandler>
           <Outlet />
-        </ErrorBoundary>
+        </ErrorHandler>
       </Container>
     </>
   );

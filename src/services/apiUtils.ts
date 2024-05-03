@@ -37,7 +37,7 @@ export const fetchCharacters = async (): Promise<Character[]> => {
  * @returns A Promise that resolves to the Character object.
  */
 export const fetchCharacter = async (id: string): Promise<Character> => {
-  return fetchData<Character>(`/people/${id}`);
+  return await fetchData<Character>(`/people/${id}`);
 };
 
 /**
@@ -51,7 +51,7 @@ export const fetchCharacter = async (id: string): Promise<Character> => {
 export const fetchHomeworld = async (
   homeworldUrl: string
 ): Promise<HomeWorld> => {
-  return fetchData<HomeWorld>(homeworldUrl);
+  return await fetchData<HomeWorld>(homeworldUrl);
 };
 
 /**
@@ -63,5 +63,5 @@ export const fetchHomeworld = async (
  * @returns A Promise that resolves to the Film object.
  */
 export const fetchFilm = async (filmUrl: string): Promise<Film> => {
-  return fetchData<Film>(filmUrl);
+  return await fetchData<Film>(filmUrl);
 };

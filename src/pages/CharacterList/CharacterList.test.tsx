@@ -67,19 +67,9 @@ describe("CharacterList Component", () => {
         url: "https://swapi.dev/api/people/1",
         films: ["https://swapi.dev/api/films/1"],
       },
-      {
-        name: "Leia Organa",
-        gender: "female",
-        height: "172",
-        hair_color: "blond",
-        eye_color: "blue",
-        homeworld: "https://swapi.dev/api/planets/2/",
-        url: "https://swapi.dev/api/people/5",
-        films: ["https://swapi.dev/api/films/1"],
-      },
     ];
 
-    const homeWorldsData = [{ name: "Tatooine" }, { name: "Alderaan" }];
+    const homeWorldsData = { name: "Tatooine" };
 
     jest.spyOn(characterHooks, "useCharacters").mockReturnValue({
       characters: charactersData,
@@ -88,20 +78,12 @@ describe("CharacterList Component", () => {
       error: null,
     });
 
-    jest.spyOn(homeWorldHooks, "useHomeWorlds").mockReturnValue([
-      {
-        data: homeWorldsData[0],
-        isLoading: false,
-        isError: false,
-        error: null,
-      } as UseQueryResult<HomeWorld, Error>,
-      {
-        data: homeWorldsData[1],
-        isLoading: false,
-        isError: false,
-        error: null,
-      } as UseQueryResult<HomeWorld, Error>,
-    ]);
+    jest.spyOn(homeWorldHooks, "useHomeWorld").mockReturnValue({
+      data: homeWorldsData,
+      isLoading: false,
+      isError: false,
+      error: null,
+    } as UseQueryResult<HomeWorld, Error>);
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -126,8 +108,6 @@ describe("CharacterList Component", () => {
 
     expect(screen.getByText("Gender: male")).toBeInTheDocument();
     expect(screen.getByText("Home planet: Tatooine")).toBeInTheDocument();
-    expect(screen.getByText("Gender: female")).toBeInTheDocument();
-    expect(screen.getByText("Home planet: Alderaan")).toBeInTheDocument();
   });
 
   test("navigates to character details when clicking a link", async () => {

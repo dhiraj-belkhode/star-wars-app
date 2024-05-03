@@ -12,6 +12,7 @@ const queryClient = new QueryClient({
    */
   defaultOptions: {
     queries: {
+      retry: false,
       /**
        * Stale Time for Queries (in milliseconds)
        * Inherits the value from `STALE_TIME` unless overridden at the query level.
